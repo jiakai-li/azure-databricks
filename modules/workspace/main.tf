@@ -7,7 +7,7 @@ resource "random_string" "naming" {
 locals {
   prefix                    = join("-", [var.prefix, var.environment])
   location                  = var.adb_rg.location
-  dbfs_storage_account_name = join("", [var.environment, random_string.naming.result])
+  dbfs_storage_account_name = join("", ["dbfs", var.environment, random_string.naming.result])
   tags = merge({
     environment : var.environment
   }, var.tags)

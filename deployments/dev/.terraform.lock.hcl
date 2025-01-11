@@ -2,8 +2,7 @@
 # Manual edits may be lost in future updates.
 
 provider "registry.terraform.io/databricks/databricks" {
-  version     = "1.62.1"
-  constraints = ">= 1.52.0"
+  version = "1.62.1"
   hashes = [
     "h1:8jisPK/Xg8xsW6KyBVyw361XQcvCForMcvYghulGuMM=",
     "zh:07c17fc1d5bfb74cae35e7cadb193d1ae552e268d56a7568fa837f200b270333",
@@ -16,8 +15,7 @@ provider "registry.terraform.io/databricks/databricks" {
 }
 
 provider "registry.terraform.io/hashicorp/azurerm" {
-  version     = "4.15.0"
-  constraints = ">= 4.1.0"
+  version = "4.15.0"
   hashes = [
     "h1:hK37RxP5UACnayk9AQKIzFSlpqDprrJ3jOy2EiNAQV4=",
     "zh:1e3f9f2e94d6ee07c74e137b22ad6199081ae0c2dde1f986bd09fa516a0a6d4b",

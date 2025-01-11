@@ -13,11 +13,17 @@ variable "environment" {
 
 variable "tags" {
   type        = map(string)
-  description = "Optional tags to add to resources"
   default     = {}
+  description = "Optional tags to add to resources"
 }
 
 variable "prefix" {
   type        = string
   description = "Prefix for resources to be created"
+}
+
+variable "replication_type" {
+  type        = string
+  default     = "LRS"
+  description = "Replication type to be used for the metastore storage account"
 }
