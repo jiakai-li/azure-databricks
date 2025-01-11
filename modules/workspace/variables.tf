@@ -1,6 +1,15 @@
+variable "adb_rg" {
+  type = object({
+    id       = string
+    name     = string
+    location = string
+  })
+}
+
+
 variable "environment" {
   type        = string
-  description = "Environment of the deployment"
+  description = "Environment of the workspace deployment"
 }
 
 variable "tags" {
@@ -11,13 +20,11 @@ variable "tags" {
 
 variable "prefix" {
   type        = string
-  default     = "data-platform"
   description = "Prefix for resources to be created"
 }
 
 variable "location" {
   type        = string
-  default     = "australiasoutheast"
   description = "Location of resource group to create"
 }
 

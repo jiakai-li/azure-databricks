@@ -9,3 +9,15 @@ variable "environment" {
   default     = "prod"
   description = "Environment of the deployment"
 }
+
+variable "prefix" {
+  type        = string
+  default     = "data-platform"
+  description = "Prefix for the resource group"
+}
+
+variable "location" {
+  type        = string
+  default     = "australiasoutheast"
+  description = "Location of the resource group"
+}

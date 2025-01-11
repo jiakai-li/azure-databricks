@@ -1,10 +1,10 @@
 terraform {
   required_providers {
     azurerm = {
-      source  = "hashicorp/azurerm"
+      source = "hashicorp/azurerm"
     }
     databricks = {
-      source  = "databricks/databricks"
+      source = "databricks/databricks"
     }
     random = {
       source = "hashicorp/random"
@@ -21,12 +21,17 @@ provider "azurerm" {
 provider "random" {
 }
 
+module "adb_rg" {
+  source      = "../../modules/rg"
+  environment = var.environment
+  prefix      = var.prefix
+  location    = var.location
+}
+
 module "adb_workspace" {
   source      = "../../modules/workspace"
   environment = var.environment
-}
-
-module "uc_storage" {
-  source = "../../modules/uc"
-  resource_group_id = module.adb_workspace
+  prefix      = var.prefix
+  location    = var.location
+  adb_rg      = module.adb_rg.this
 }

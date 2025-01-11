@@ -1,7 +1,7 @@
 resource "azurerm_databricks_workspace" "this" {
   name                = "${local.prefix}-workspace"
-  resource_group_name = azurerm_resource_group.this.name
-  location            = azurerm_resource_group.this.location
+  resource_group_name = var.adb_rg.name
+  location            = var.adb_rg.location
   sku                 = "premium"
   tags                = local.tags
 
