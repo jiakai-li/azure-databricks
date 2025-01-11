@@ -57,6 +57,6 @@ resource "azurerm_subnet" "private" {
 }
 
 resource "azurerm_subnet_network_security_group_association" "private" {
-  subnet_id                 = azurerm_subnet.public.id
+  subnet_id                 = azurerm_subnet.private.id
   network_security_group_id = azurerm_network_security_group.this.id
 }

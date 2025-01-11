@@ -3,6 +3,7 @@ resource "azurerm_resource_group" "this" {
   location = var.location
   tags     = local.tags
 }
+
 locals {
   prefix = join("-", [var.prefix, var.environment])
   tags = merge({

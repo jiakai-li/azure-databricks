@@ -1,6 +1,7 @@
 resource "azurerm_databricks_workspace" "this" {
   name                = "${local.prefix}-workspace"
   resource_group_name = var.adb_rg.name
+  managed_resource_group_name = "${local.prefix}-adb-managed-rg"
   location            = var.adb_rg.location
   sku                 = "premium"
   tags                = local.tags

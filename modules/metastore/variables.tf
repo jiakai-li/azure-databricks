@@ -1,6 +1,7 @@
 variable "adb_workspace" {
   type = object({
-    workspace_id = string
+    workspace_name = string
+    resource_group = string
   })
 }
 
