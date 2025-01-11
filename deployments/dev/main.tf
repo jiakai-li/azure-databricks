@@ -35,9 +35,10 @@ module "adb_workspace" {
   adb_rg      = module.adb_rg.this
 }
 
-module "adb_uc" {
-  source      = "../../modules/uc"
-  environment = var.environment
-  prefix      = var.prefix
-  adb_rg      = module.adb_rg.this
+module "adb_metastore" {
+  source        = "../../modules/metastore"
+  environment   = var.environment
+  prefix        = var.prefix
+  adb_rg        = module.adb_rg.this
+  adb_workspace = module.adb_workspace.this
 }
