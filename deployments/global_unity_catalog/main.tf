@@ -4,9 +4,16 @@ resource "random_string" "naming" {
   length  = 6
 }
 
+module "metastore_rg" {
+  source      = "../../modules/rg"
+  environment = "global"
+  location    = var.location
+  prefix      = var.prefix
+}
+
 locals {
   prefix                         = var.prefix
-  location                       = var.adb_rg.location
+  location                       = var.location
   metastore_storage_account_name = join("", ["globalmetastore", random_string.naming.result])
   tags                           = var.tags
 }

@@ -1,7 +1,7 @@
 resource "azurerm_databricks_access_connector" "this" {
   name                = "${local.prefix}-adb-access-connector"
-  resource_group_name = var.adb_rg.name
-  location            = var.adb_rg.location
+  resource_group_name = module.metastore_rg.this.name
+  location            = module.metastore_rg.this.location
   identity {
     type = "SystemAssigned"
   }
@@ -10,8 +10,8 @@ resource "azurerm_databricks_access_connector" "this" {
 
 resource "azurerm_storage_account" "unity_catalog" {
   name                     = local.metastore_storage_account_name
-  location                 = var.adb_rg.location
-  resource_group_name      = var.adb_rg.name
+  location                 = module.metastore_rg.this.location
+  resource_group_name      = module.metastore_rg.this.name
   tags                     = local.tags
   account_tier             = "Standard"
   account_replication_type = var.replication_type

@@ -5,7 +5,7 @@ data "azurerm_databricks_workspace" "this" {
 
 resource "databricks_metastore" "this" {
   name          = "${local.prefix}-metastore"
-  region        = var.adb_rg.location
+  region        = module.metastore_rg.this.location
   force_destroy = true
   storage_root = format(
     "abfss://%s@%s.dfs.core.windows.net/",

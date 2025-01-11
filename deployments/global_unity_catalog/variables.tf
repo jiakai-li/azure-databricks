@@ -5,12 +5,10 @@ variable "adb_workspace" {
   })
 }
 
-variable "adb_rg" {
-  type = object({
-    id       = string
-    name     = string
-    location = string
-  })
+variable "location" {
+  type        = string
+  default     = "australiasoutheast"
+  description = "Location of the resource group and metastore"
 }
 
 variable "tags" {
@@ -21,6 +19,7 @@ variable "tags" {
 
 variable "prefix" {
   type        = string
+  default     = "data-platform"
   description = "Prefix for resources to be created"
 }
 
