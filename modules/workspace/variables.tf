@@ -6,7 +6,6 @@ variable "adb_rg" {
   })
 }
 
-
 variable "environment" {
   type        = string
   description = "Environment of the workspace deployment"
@@ -21,11 +20,6 @@ variable "tags" {
 variable "prefix" {
   type        = string
   description = "Prefix for resources to be created"
-}
-
-variable "location" {
-  type        = string
-  description = "Location of resource group to create"
 }
 
 variable "vnet_cidr" {

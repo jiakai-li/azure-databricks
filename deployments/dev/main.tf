@@ -32,6 +32,12 @@ module "adb_workspace" {
   source      = "../../modules/workspace"
   environment = var.environment
   prefix      = var.prefix
-  location    = var.location
+  adb_rg      = module.adb_rg.this
+}
+
+module "adb_uc" {
+  source      = "../../modules/uc"
+  environment = var.environment
+  prefix      = var.prefix
   adb_rg      = module.adb_rg.this
 }
