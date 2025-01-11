@@ -1,10 +1,10 @@
 resource "azurerm_databricks_workspace" "this" {
-  name                = "${local.prefix}-workspace"
-  resource_group_name = var.adb_rg.name
+  name                        = "${local.prefix}-workspace"
+  resource_group_name         = var.adb_rg.name
   managed_resource_group_name = "${local.prefix}-adb-managed-rg"
-  location            = var.adb_rg.location
-  sku                 = "premium"
-  tags                = local.tags
+  location                    = var.adb_rg.location
+  sku                         = "premium"
+  tags                        = local.tags
 
   custom_parameters {
     virtual_network_id                                   = azurerm_virtual_network.this.id

@@ -19,7 +19,7 @@ resource "azurerm_storage_account" "unity_catalog" {
 }
 
 resource "azurerm_storage_container" "unity_catalog" {
-  name                  = "${local.metastore_storage_account_name}-container"
+  name                  = "${local.prefix}-metastore"
   storage_account_id    = azurerm_storage_account.unity_catalog.id
   container_access_type = "private"
 }

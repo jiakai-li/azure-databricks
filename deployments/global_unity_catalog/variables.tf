@@ -13,11 +13,6 @@ variable "adb_rg" {
   })
 }
 
-variable "environment" {
-  type        = string
-  description = "Environment of the workspace deployment"
-}
-
 variable "tags" {
   type        = map(string)
   default     = {}

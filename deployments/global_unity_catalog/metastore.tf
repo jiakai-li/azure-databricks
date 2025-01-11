@@ -3,10 +3,6 @@ data "azurerm_databricks_workspace" "this" {
   resource_group_name = var.adb_workspace.resource_group
 }
 
-provider "databricks" {
-  host = data.azurerm_databricks_workspace.this.workspace_url
-}
-
 resource "databricks_metastore" "this" {
   name          = "${local.prefix}-metastore"
   region        = var.adb_rg.location
@@ -24,9 +20,10 @@ resource "databricks_metastore_assignment" "this" {
   metastore_id = databricks_metastore.this.id
 }
 
+// Storage credential created in each workspace
 resource "databricks_metastore_data_access" "this" {
   metastore_id = databricks_metastore.this.id
-  name         = "${local.prefix}-metastore-data-access"
+  name         = "metastore-root-data-access"
   azure_managed_identity {
     access_connector_id = azurerm_databricks_access_connector.this.id
   }
