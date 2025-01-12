@@ -21,3 +21,9 @@ variable "location" {
   default     = "australiasoutheast"
   description = "Location of the resource group"
 }
+
+variable "metastore_id" {
+  type        = string
+  default     = "3767c12b-6da7-426f-8d6e-fc15d3b5c400"
+  description = "Metastore Id that will be associated with workspace"
+}

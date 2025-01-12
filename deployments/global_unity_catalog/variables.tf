@@ -1,8 +1,13 @@
-variable "adb_workspace" {
-  type = object({
-    workspace_name = string
-    resource_group = string
-  })
+variable "subscription_id" {
+  type        = string
+  default     = "f395fe55-48c9-4c82-a0c7-2551d7420d28"
+  description = "Azure Subscription ID to deploy the workspace into"
+}
+
+variable "account_id" {
+  type        = string
+  default     = "27944b26-c808-4b2e-a595-16462caec3b1"
+  description = "Azure databricks account id"
 }
 
 variable "location" {

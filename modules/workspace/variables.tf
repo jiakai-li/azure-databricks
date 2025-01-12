@@ -22,6 +22,11 @@ variable "prefix" {
   description = "Prefix for resources to be created"
 }
 
+variable "metastore_id" {
+  type = string
+  description = "Metastore the workspace associates with"
+}
+
 variable "vnet_cidr" {
   type        = string
   default     = "10.179.0.0/16"

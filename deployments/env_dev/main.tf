@@ -29,8 +29,9 @@ module "adb_rg" {
 }
 
 module "adb_workspace" {
-  source      = "../../modules/workspace"
-  environment = var.environment
-  prefix      = var.prefix
-  adb_rg      = module.adb_rg.this
+  source       = "../../modules/workspace"
+  environment  = var.environment
+  prefix       = var.prefix
+  adb_rg       = module.adb_rg.this
+  metastore_id = var.metastore_id
 }

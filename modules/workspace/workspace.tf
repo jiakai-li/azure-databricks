@@ -20,3 +20,12 @@ resource "azurerm_databricks_workspace" "this" {
     azurerm_subnet_network_security_group_association.private
   ]
 }
+
+provider "databricks" {
+  host = azurerm_databricks_workspace.this.workspace_url
+}
+
+resource "databricks_metastore_assignment" "this" {
+  metastore_id = var.metastore_id
+  workspace_id = azurerm_databricks_workspace.this.workspace_id
+}
